@@ -4,9 +4,9 @@ const cors = require('cors');
 const app = express();
 require('dotenv').config();
 
-const routes_usuarios = require('./routes_usuario')
-const routes_libros = require('./routes_libros')
-const routes_venta = require('./routes_venta')
+const routes_usuarios = require('./routes/routes_usuarios')
+const routes_libros = require('./routes/routes_libros')
+const routes_venta = require('./routes/routes_venta')
 
 app.use(morgan('dev'))
 
