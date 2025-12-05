@@ -10,3 +10,5 @@ const {
 router.get('/libros/:id', get_libro)
 router.get('/libros', get_libros)
 router.get('/libros/populares', get_populares)
+
+module.exports = router

@@ -2,7 +2,8 @@ const JWT = require('jsonwebtoken')
 const SECRET_KEY = process.env.JWT_SECRET_KEY
 
 const verify = (req, res, next) => {
-    const token = req.headers.authorization
+    const header = req.headers['authorization'] || ''
+    const token = header.startsWith('Bearer ') ? header.slice(7) : null
     if (!token) return res.status(403).json({ msg: 'Token de acceso no proporcionado'})
     
     try {

@@ -46,8 +46,8 @@ const get_ventas = async (req, res) => {
             order: [
                 ['createdAt', 'DESC']
             ],
-            limit: limit,
-            offset: offset
+            limit: limit || 100,
+            offset: offset || 0
         })
 
         if (ventas.length === 0)
