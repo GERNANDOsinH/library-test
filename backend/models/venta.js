@@ -1,24 +1,28 @@
 const { DataTypes } = require('sequelize')
 const { sequelize } = require('../db')
 
-const RESENA = sequelize.define('RESEÑA', {
+const VENTA = sequelize.define('VENTA', {
     id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true
     },
-    score: {
+    id_usuario: {
         type: DataTypes.INTEGER,
         allowNull: false
     },
-    comment: {
-        type: DataTypes.STRING,
+    id_libro: {
+        type: DataTypes.INTEGER,
         allowNull: false
     },
-    id_venta: {
+    price: {
+        type: DataTypes.INTEGER,
+        allowNull: false
+    },
+    quantity: {
         type: DataTypes.INTEGER,
         allowNull: false
     }
-})
+}, { timestamps: true })
 
-module.exports = RESENA
+module.exports = VENTA

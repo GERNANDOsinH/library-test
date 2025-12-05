@@ -1,21 +1,18 @@
 const USUARIO = require('./usuario')
 const LIBRO = require('./libro')
 const RESENA = require('./resena')
+const VENTA = require('./venta')
 
-USUARIO.hasMany(RESENA, {
-    foreignKey: 'id_usuario'
-})
+USUARIO.hasMany(VENTA, { foreignKey: 'id_usuario' })
 
-RESENA.belongsTo(USUARIO, {
-    foreignKey: 'id_usuario'
-})
+VENTA.belongsTo(USUARIO, {foreignKey: 'id_usuario' })
 
-LIBRO.hasMany(RESENA, {
-    foreignKey: 'id_libro'
-})
+LIBRO.hasMany(VENTA, { foreignKey: 'id_libro' })
 
-RESENA.belongsTo(LIBRO, {
-    foreignKey: 'id_libro'
-})
+VENTA.belongsTo(LIBRO, { foreignKey: 'id_libro' })
 
-module.exports = { USUARIO, LIBRO, RESENA }
+VENTA.hasOne(RESENA, { foreignKey: 'id_venta' })
+
+RESENA.belongsTo(VENTA, {foreignKey: 'id_venta'})
+
+module.exports = { USUARIO, LIBRO, RESENA, VENTA }
