@@ -1,0 +1,33 @@
+.login-container {
+    max-width: 500px;
+    margin: 0 auto;
+    padding-top: 32px;
+    font-size: 24px;
+}
+
+.password-group {
+  position: relative;
+}
+
+.password-group input {
+  padding-right: 40px;
+}
+
+.toggle-btn {
+  position: absolute;
+  top: 50%;
+  right: 5px; 
+  transform: translateY(20%);
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
+  width: 30px;
+  height: 30px;
+  font-size: 1.2em;
+}
+
+.toggle-btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.5);
+}
