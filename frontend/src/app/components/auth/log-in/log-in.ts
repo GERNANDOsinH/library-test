@@ -1,7 +1,8 @@
-import { Component, Output, EventEmitter } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { AuthService } from '@services/auth/auth';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-log-in',
@@ -13,7 +14,7 @@ import { AuthService } from '@services/auth/auth';
 export class LogIn {
     passwordVisible: boolean = false;
 
-    constructor(private authService: AuthService) { }
+    constructor(private authService: AuthService, private router: Router){ }
 
     loginForm = new FormGroup({
         email: new FormControl('', [
@@ -26,8 +27,6 @@ export class LogIn {
         ])
     });
 
-    @Output() loginSuccess: EventEmitter<boolean>  = new EventEmitter<boolean>();
-
     togglePasswordVisibility() {
         this.passwordVisible = !this.passwordVisible;
     }
@@ -38,7 +37,7 @@ export class LogIn {
             this.authService.login(userData).subscribe({
                 next: (response) => {
                     console.log('Inicio de sesión exitoso', response);
-                    this.loginSuccess.emit(true);
+                    this.router.navigate(['/home']);
                 },
                 error: (err) => {
                     console.error('Error durante el inicio de sesión: ', err);

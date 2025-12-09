@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators, ValidationErrors, AbstractControl } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { AuthService } from '@services/auth/auth';
-// import { router } from '@angular/router';
+import { Router } from '@angular/router';
 
 export const passwordsMatchValidator = (control: AbstractControl): ValidationErrors | null => {
     const password = control.get('password');
@@ -23,7 +23,7 @@ export const passwordsMatchValidator = (control: AbstractControl): ValidationErr
 })
 
 export class Register {
-    constructor(private authService: AuthService) { }
+    constructor(private authService: AuthService, private router: Router) { }
 
     passwordVisible: boolean = false;
     repeatPasswordVisible: boolean = false;
@@ -65,7 +65,7 @@ export class Register {
             this.authService.register(userData).subscribe({
                 next: (response) => {
                     console.log('Registro exitoso: ', response);
-                    alert('¡Registro completado! Puedes iniciar sesión.');
+                    this.router.navigate(['/auth']);
                 },
                 error: (err) => {
                     console.error('Error durante el registro:', err);
