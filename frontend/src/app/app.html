@@ -1,9 +1,3 @@
 <h1>Library Test -- La biblioteca que nadie necesita</h1>
 
-@if (isLoggedIn) {
-    <app-home/>
-}
-@else {
-    <app-log-in (loginSuccess)="onLoginComplete($event)"/>
-}
 <router-outlet/>

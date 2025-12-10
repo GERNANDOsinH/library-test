@@ -13,7 +13,7 @@ const routes_venta = require('./routes/routes_venta')
 
 app.use(morgan('dev'))
 
-const allowedOrigins = new Set(['http://localhost:5173', 'http://127.0.0.1:5173'])
+const allowedOrigins = new Set(['http://localhost:4200', 'http://127.0.0.1:4200'])
 const corsOptions = {
   origin(origin, callback) {
     callback(null, !origin || allowedOrigins.has(origin))

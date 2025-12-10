@@ -1,6 +1,9 @@
-@if (isLogging){
-    <app-log-in/>
-}
-@else {
-    <app-register/>
-}
+<div>
+    <button type="button" class="toggle-btn" (click)="change()">Cambiar</button>
+    @if (isLogging){
+        <app-log-in/>
+    }
+    @else {
+        <app-register/>
+    }
+</div>
