@@ -1,0 +1,1 @@
+Este es un proyecto que estoy haciendo para practicar angular, no tiene ningun proposito más que el de aprender un uso particular del mismo para adecuarme al framework, no espere que continue.
