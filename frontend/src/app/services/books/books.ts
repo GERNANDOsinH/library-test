@@ -8,7 +8,7 @@ interface Book {
     id: number
     title: string
     author: string
-    quantity: string
+    quantity: number
     popularity_score : number
     price: number
 }

@@ -5,7 +5,7 @@ interface Book {
     id: number
     title: string
     author: string
-    quantity: string
+    quantity: number
     popularity_score : number
     price: number
 }
@@ -18,8 +18,7 @@ interface Book {
 export class Selector {
     constructor() {}
 
-    @Input()
-    libro: Book = {} as Book;
+    @Input() libro!: Book;
     @Output()
     libro_en_el_carrito: EventEmitter<[number, number]> = new EventEmitter<[number, number]>();
 

@@ -1,0 +1,10 @@
+/* search.css */
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+/* Le damos espacio a cada elemento de la lista */
+li {
+  margin-bottom: 24px; /* Esto empuja el siguiente libro hacia abajo */
+}

@@ -1,5 +1,25 @@
 const LIBRO = require('../models/libro')
 
+const post_libro = async (req, res) => {
+    const { title, author, quantity, price } = req.body;
+
+    try {
+        const libro = await LIBRO.create({
+            title: title,
+            author: author,
+            quantity: quantity,
+            popularity_score: 0,
+            price: price
+        })
+
+        return res.status(201).json({ 'msg': 'Libro creado' })
+    }
+    catch (e) {
+        console.log(e)
+        return res.status(500).json({ 'msg': 'Error interno del servidor' })
+    }
+}
+
 const get_libros = async (req, res) => {
     const { limit, offset } = req.query
     
@@ -46,7 +66,7 @@ const get_populares = async (req, res) => {
 
         if (top_libros.length === 0) return res.status(404).json({ 'msg': 'No hay libros' })
         
-        return res.json(200).json({books: top_libros})
+        return res.status(200).json({books: top_libros})
     }
     catch (e) {
         console.log(e)
@@ -55,6 +75,7 @@ const get_populares = async (req, res) => {
 }
 
 module.exports = {
+    post_libro,
     get_libros,
     get_libro,
     get_populares

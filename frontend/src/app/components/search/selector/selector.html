@@ -1,5 +1,12 @@
-<div class="book-container">
-    <h3>Titulo</h3>
-    <p class="description">Descripción</p>
-    <button class="button" (click)="addToCart()">Añadir al carro</button>
+<div class="libro-card-interna">
+    <h3>{{ libro.title }}</h3>
+    <p class="autor">{{ libro.author }}</p>
+    
+    <div class="footer-card">
+        <span class="precio">${{ libro.price }}</span>
+        
+        <button (click)="addToCart()">
+            Agregar al Carrito
+        </button>
+    </div>
 </div>

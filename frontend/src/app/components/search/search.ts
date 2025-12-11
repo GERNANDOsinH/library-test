@@ -9,7 +9,7 @@ interface Book {
     id: number
     title: string
     author: string
-    quantity: string
+    quantity: number
     popularity_score : number
     price: number
 }
@@ -47,8 +47,12 @@ export class Search implements OnInit {
     searchBooks () {
         if (!this.is_looking_the_most_popular){
             this.bookService.get_books(this.limit, this.offset).subscribe({
-                next: (response) => {
-                    this.books = response.books;
+                next: (response: any) => {
+                    console.log(response)
+                    if (response.books)
+                        this.books = response.books;
+                    else
+                        this.books = response as Book[];
                     console.log("Se cargaron los libros");
                 },
                 error: (err) => {
@@ -63,6 +67,7 @@ export class Search implements OnInit {
         else {
             this.bookService.get_populars(this.limit, this.offset).subscribe({
                 next: (response) => {
+                    this.books = response.books;
                     console.log("Se cargaron los libros");
                 },
                 error: (err) => {
