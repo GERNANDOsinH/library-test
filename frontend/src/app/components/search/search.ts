@@ -26,7 +26,6 @@ export class Search implements OnInit {
         private router: Router){ }
 
     public books: Book[] = [];
-    public carrito: number[] = [];
     
     private limit: number = 50;
     private offset: number = 0;
@@ -73,10 +72,6 @@ export class Search implements OnInit {
                 }
             })
         }
-    }
-
-    agregarAlCarro(id: number) {
-        this.carrito.push(id);
     }
 
 }
