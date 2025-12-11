@@ -7,6 +7,7 @@ interface Book {
     author: string
     quantity: string
     popularity_score : number
+    price: number
 }
 
 @Component({
@@ -20,9 +21,9 @@ export class Selector {
     @Input()
     libro: Book = {} as Book;
     @Output()
-    libro_en_el_carrito: EventEmitter<number> = new EventEmitter<number>();
+    libro_en_el_carrito: EventEmitter<[number, number]> = new EventEmitter<[number, number]>();
 
     addToCart() {
-        this.libro_en_el_carrito.emit(this.libro.id);
+        this.libro_en_el_carrito.emit([this.libro.id, this.libro.price]);
     }
 }

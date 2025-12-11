@@ -11,7 +11,10 @@ export class Home {
     constructor(private router: Router) {}
 
     goToCatalog() {
-        this.router.navigate(['/home']);
+        this.router.navigate(['/catalogo']);
+    }
+    goToCart() {
+        this.router.navigate(['/cart']);
     }
     goToAccount() {
         this.router.navigate(['/me']);

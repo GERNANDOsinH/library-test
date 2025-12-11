@@ -10,6 +10,7 @@ interface Book {
     author: string
     quantity: string
     popularity_score : number
+    price: number
 }
 
 interface BooksResponse {

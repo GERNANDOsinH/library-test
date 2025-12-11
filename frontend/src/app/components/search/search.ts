@@ -11,6 +11,7 @@ interface Book {
     author: string
     quantity: string
     popularity_score : number
+    price: number
 }
 
 @Component({
@@ -26,6 +27,7 @@ export class Search implements OnInit {
         private router: Router){ }
 
     public books: Book[] = [];
+    public carrito: [number, number][] = [];
     
     private limit: number = 50;
     private offset: number = 0;
@@ -73,5 +75,7 @@ export class Search implements OnInit {
             })
         }
     }
-
+    agregarAlCarro (tuple: [number, number]) {
+        this.carrito.push(tuple);
+    }
 }
