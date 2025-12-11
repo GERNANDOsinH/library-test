@@ -1,12 +1,17 @@
 const LIBRO = require('../models/libro')
 
 const get_libros = async (req, res) => {
+    const { limit, offset } = req.query
+    
     try {
-        const libros = await LIBRO.findAll()
+        const libros = await LIBRO.findAll({
+            limit: limit,
+            offset: offset
+        })
 
         if (!libros) return res.status(404).json({ 'msg': 'No hay libros' })
 
-        return res.status(200).json(libros)
+        return res.status(200).json({books: libros})
     }
     catch (e) {
         console.log(e)
@@ -21,7 +26,7 @@ const get_libro = async (req, res) => {
         const libro = await LIBRO.findOne({ where: { id } })
         if (!libro) return res.status(404).json({ 'msg': 'No existe este libro' })
         
-        return res.status(200).json(libro)
+        return res.status(200).json({book: libro})
     }
     catch (e) {
         console.log(e)
@@ -41,7 +46,7 @@ const get_populares = async (req, res) => {
 
         if (top_libros.length === 0) return res.status(404).json({ 'msg': 'No hay libros' })
         
-        return res.json(200).json(top_libros)
+        return res.json(200).json({books: top_libros})
     }
     catch (e) {
         console.log(e)

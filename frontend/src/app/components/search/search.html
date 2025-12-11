@@ -1,0 +1,12 @@
+@if (this.books.length != 0) {
+    <ul>
+        @for (book of books; track book.id) {
+            <li>
+                <app-selector [libro]="book" (libro_en_el_carrito)="agregarAlCarro($event)"></app-selector>
+            </li>
+        }
+    </ul>
+}
+@else {
+    <p>No se encontrar libros</p>
+}
