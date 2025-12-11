@@ -1,0 +1,42 @@
+.container {
+    display: flex;
+    font-family: sans-serif;
+    gap: 20px;
+}
+
+.catalogo {
+text-align: center;
+    flex: 0.5 0.5 auto;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);    
+    padding: 15px;
+}
+
+.carrito {
+text-align: center;
+    flex: 0.5 0.5 auto;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);    
+    padding: 15px;
+}
+
+.cuenta {
+    text-align: center;
+    flex: 0.5 0.5 auto;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);    
+    padding: 15px;
+}
+
+.button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+}
